@@ -22,7 +22,7 @@ public class StudentResponse {
         this.brith = student.getBirth();
         this.phoneNumber = student.getPhoneNumber();
 
-        if(student.getLecture() != null){
-        }
+        // if(student.getLecture() != null){
+        // }
     }
 }

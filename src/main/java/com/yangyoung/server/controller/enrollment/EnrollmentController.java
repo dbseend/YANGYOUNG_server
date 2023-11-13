@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/enrollment")
+@CrossOrigin(origins = "http://localhost:3000")
 public class EnrollmentController {
     private final EnrollmentService enrollmentService;
 

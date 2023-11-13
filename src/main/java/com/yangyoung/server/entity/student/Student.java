@@ -18,7 +18,7 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name; //학생 이름
-    private Integer gender; //성별(0: 여자, 1: 남자)
+    private Integer gender; //성별(0: 여자 1: 남자)
     private Integer grade; //학년
     private String birth; //생일
     private String phoneNumber; //전화번호

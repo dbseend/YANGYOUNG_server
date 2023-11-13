@@ -1,5 +1,9 @@
 package com.yangyoung.server.dto.student.response;
 
+import com.yangyoung.server.entity.student.Student;
+import lombok.Data;
+
+@Data // dto 에서 어떤 역할을 했지? 왜 없을 때는 오류가 났지?
 public class StudentInfoResponse {
     private Long id;
     private String name;
@@ -7,4 +11,13 @@ public class StudentInfoResponse {
     private Integer grade;
     private String birth;
     private String phoneNumber;
+
+    public StudentInfoResponse(Student student) {
+        this.id = student.getId();
+        this.name = student.getName();
+        this.gender = student.getGender();
+        this.grade = student.getGrade();
+        this.birth = student.getBirth();
+        this.phoneNumber = student.getPhoneNumber();
+    }
 }

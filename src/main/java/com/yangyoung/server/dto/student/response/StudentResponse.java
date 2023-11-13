@@ -2,9 +2,11 @@ package com.yangyoung.server.dto.student.response;
 
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.student.Student;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class StudentResponse {
     private Long id;
     private String name;

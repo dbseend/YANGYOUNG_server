@@ -20,6 +20,7 @@ public class StudentController {
     @PostMapping("/create")
     public ResponseEntity<Student> createStudent(@RequestBody StudentInfoCreateRequest request) {
         Student student = studentService.createStudent(request);
+
         return ResponseEntity.ok()
                 .body(student);
     }

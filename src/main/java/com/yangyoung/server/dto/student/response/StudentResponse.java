@@ -2,6 +2,7 @@ package com.yangyoung.server.dto.student.response;
 
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.student.Student;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class StudentResponse {
     private String phoneNumber;
     private List<Enrollment> lectures;
 
-    public StudentResponse(Student student){
+    public StudentResponse(Student student) {
         this.id = student.getId();
         this.name = student.getName();
         this.gender = student.getGender();

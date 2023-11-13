@@ -1,5 +1,8 @@
 package com.yangyoung.server.dto.lecture.request;
 
+import lombok.Data;
+
+@Data
 public class LectureInfoUpdateRequest {
     private String name;
     private String prof;

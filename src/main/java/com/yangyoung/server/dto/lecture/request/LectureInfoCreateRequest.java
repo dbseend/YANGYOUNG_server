@@ -1,12 +1,14 @@
 package com.yangyoung.server.dto.lecture.request;
 
 import com.yangyoung.server.entity.lecture.Lecture;
+import lombok.Data;
 
+@Data
 public class LectureInfoCreateRequest {
     private String name;
     private String prof;
     private Integer type;
-    private Integer condition;
+    private Integer lecture_condition;
     private Integer time;
     private String book;
 
@@ -14,8 +16,8 @@ public class LectureInfoCreateRequest {
         return Lecture.builder()
                 .name(name)
                 .prof(prof)
-                .time(type)
-                .condition(condition)
+                .type(type)
+                .lecture_condition(lecture_condition)
                 .time(time)
                 .book(book)
                 .build();

@@ -1,5 +1,6 @@
 package com.yangyoung.server.dto.lecture.response;
 
+import com.yangyoung.server.dto.enrollment.response.EnrollmentForLectureResponse;
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import lombok.Data;
 
@@ -14,5 +15,5 @@ public class LectureResponse {
     private Integer lecture_condition;
     private Integer time;
     private String book;
-    private List<Enrollment> enrolledStudents;
+    private List<EnrollmentForLectureResponse> enrolledStudents;
 }

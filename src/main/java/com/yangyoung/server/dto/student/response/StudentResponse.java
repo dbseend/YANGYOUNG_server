@@ -1,5 +1,6 @@
 package com.yangyoung.server.dto.student.response;
 
+import com.yangyoung.server.dto.enrollment.response.EnrollmentForStudentResponse;
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.student.Student;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ public class StudentResponse {
     private Integer grade;
     private String brith;
     private String phoneNumber;
-    private List<Enrollment> lectures;
+    private List<EnrollmentForStudentResponse> lectures;
 
     public StudentResponse(Student student) {
         this.id = student.getId();
@@ -24,8 +25,5 @@ public class StudentResponse {
         this.grade = student.getGrade();
         this.brith = student.getBirth();
         this.phoneNumber = student.getPhoneNumber();
-
-        // if(student.getLecture() != null){
-        // }
     }
 }

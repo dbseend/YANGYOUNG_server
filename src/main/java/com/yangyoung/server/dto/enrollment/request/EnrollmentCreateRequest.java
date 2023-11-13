@@ -1,6 +1,10 @@
 package com.yangyoung.server.dto.enrollment.request;
 
+import com.yangyoung.server.entity.enrollment.Enrollment;
+import lombok.Data;
+
+@Data
 public class EnrollmentCreateRequest {
-    private Integer student_id;
-    private Integer lecture_id;
+    private Long student_id;
+    private Long lecture_id;
 }

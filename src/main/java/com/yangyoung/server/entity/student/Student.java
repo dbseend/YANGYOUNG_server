@@ -26,7 +26,6 @@ public class Student {
     private String birth; // 생일
     private String phoneNumber; // 전화번호
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<Enrollment> enrollments = new ArrayList<>(); // 수강 과목
 
 

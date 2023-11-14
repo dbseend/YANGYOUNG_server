@@ -3,6 +3,7 @@ package com.yangyoung.server.controller.student;
 import com.yangyoung.server.dto.student.request.StudentInfoCreateRequest;
 import com.yangyoung.server.dto.student.request.StudentInfoUpdateRequest;
 import com.yangyoung.server.dto.student.response.StudentInfoResponse;
+import com.yangyoung.server.dto.student.response.StudentResponse;
 import com.yangyoung.server.entity.student.Student;
 import com.yangyoung.server.service.student.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -38,12 +39,20 @@ public class StudentController {
     }
 
     @GetMapping("/find/{studentId}")
-    public ResponseEntity<StudentInfoResponse> findStudent(@PathVariable Long studentId) {
-        Student student = studentService.findStudent(studentId);
+    public ResponseEntity<StudentResponse> findLecturesForStudent(@PathVariable Long studentId) {
+        StudentResponse response = studentService.findLecturesForStudent(studentId);
 
         return ResponseEntity.ok()
-                .body(new StudentInfoResponse(student));
+                .body(response);
     }
+
+//    @GetMapping("/find/{studentId}")
+//    public ResponseEntity<StudentInfoResponse> findStudent(@PathVariable Long studentId) {
+//        Student student = studentService.findStudent(studentId);
+//
+//        return ResponseEntity.ok()
+//                .body(new StudentInfoResponse(student));
+//    }
 
     @PatchMapping("/update/{studentId}")
     public ResponseEntity<Student> updateStudent(@PathVariable Long studentId, @RequestBody StudentInfoUpdateRequest request) {

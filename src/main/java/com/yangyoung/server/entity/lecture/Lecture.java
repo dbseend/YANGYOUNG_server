@@ -24,7 +24,6 @@ public class Lecture {
     private String book; // 교재
     //강의 듣는 학생 리스트
     @OneToMany(mappedBy = "lecture", cascade = CascadeType.ALL) //enrollment entity에서 lecture로 연결
-    @JsonIgnore
     private List<Enrollment> studentList;
 
     @Builder

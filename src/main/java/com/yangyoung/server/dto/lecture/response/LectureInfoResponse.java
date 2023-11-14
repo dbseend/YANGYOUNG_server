@@ -1,9 +1,14 @@
 package com.yangyoung.server.dto.lecture.response;
 
+import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.lecture.Lecture;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LectureInfoResponse {
     private Long id;
     private String name;
@@ -21,5 +26,8 @@ public class LectureInfoResponse {
         this.lecture_condition = lecture.getLecture_condition();
         this.time = lecture.getTime();
         this.book = lecture.getBook();
+    }
+
+    public LectureInfoResponse(Enrollment enrollment) {
     }
 }

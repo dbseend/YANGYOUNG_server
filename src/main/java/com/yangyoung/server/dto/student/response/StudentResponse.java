@@ -22,19 +22,5 @@ public class StudentResponse {
     private String brith;
     private String phoneNumber;
     private List<LectureInfoResponse> lectures;
-
-    public StudentResponse(Student student) {
-        this.id = student.getId();
-        this.name = student.getName();
-        this.gender = student.getGender();
-        this.grade = student.getGrade();
-        this.brith = student.getBirth();
-        this.phoneNumber = student.getPhoneNumber();
-        if (student.getEnrollments() != null) {
-            this.lectures = student.getEnrollments().stream()
-                    .map(LectureInfoResponse::new)
-                    .collect(Collectors.toList());
-        }
-    }
 }
 

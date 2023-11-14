@@ -1,9 +1,13 @@
 package com.yangyoung.server.dto.student.response;
 
 import com.yangyoung.server.entity.student.Student;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data // dto 에서 어떤 역할을 했지? 왜 없을 때는 오류가 났지?
+@AllArgsConstructor
+@NoArgsConstructor
 public class StudentInfoResponse {
     private Long id;
     private String name;

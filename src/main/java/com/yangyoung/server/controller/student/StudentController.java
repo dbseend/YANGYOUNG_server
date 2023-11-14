@@ -39,7 +39,7 @@ public class StudentController {
     }
 
     @GetMapping("/find/{studentId}")
-    public ResponseEntity<StudentResponse> findLecturesForStudent(@PathVariable Long studentId) {
+    public ResponseEntity<StudentResponse> findStudent(@PathVariable Long studentId) {
         StudentResponse response = studentService.findLecturesForStudent(studentId);
 
         return ResponseEntity.ok()

@@ -29,6 +29,7 @@ public class Student {
     @JsonIgnore
     private List<Enrollment> enrollments = new ArrayList<>(); // 수강 과목
 
+
     @Builder
     public Student(String name, Integer gender, Integer grade, String birth, String phoneNumber) {
         this.name = name;

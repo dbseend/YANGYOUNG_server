@@ -4,7 +4,6 @@ import com.yangyoung.server.dto.lecture.request.LectureInfoCreateRequest;
 import com.yangyoung.server.dto.lecture.request.LectureInfoUpdateRequest;
 import com.yangyoung.server.dto.lecture.response.LectureInfoResponse;
 import com.yangyoung.server.dto.lecture.response.LectureResponse;
-import com.yangyoung.server.dto.student.response.StudentResponse;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.service.lecture.LectureService;
 import lombok.RequiredArgsConstructor;

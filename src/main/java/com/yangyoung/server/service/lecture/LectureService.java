@@ -2,17 +2,14 @@ package com.yangyoung.server.service.lecture;
 
 import com.yangyoung.server.dto.lecture.request.LectureInfoCreateRequest;
 import com.yangyoung.server.dto.lecture.request.LectureInfoUpdateRequest;
-import com.yangyoung.server.dto.lecture.response.LectureInfoResponse;
 import com.yangyoung.server.dto.lecture.response.LectureResponse;
 import com.yangyoung.server.dto.student.response.StudentInfoResponse;
-import com.yangyoung.server.dto.student.response.StudentResponse;
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.entity.student.Student;
 import com.yangyoung.server.repository.Enrollment.EnrollmentRepository;
 import com.yangyoung.server.repository.lecture.LectureRepository;
 import jakarta.transaction.Transactional;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +46,7 @@ public class LectureService {
         }
 
         LectureResponse response = new LectureResponse(lecture.getId(), lecture.getName(), lecture.getProf()
-                , lecture.getType(), lecture.getLecture_condition(), lecture.getTime(), lecture.getBook(), students);
+                , lecture.getType(), lecture.getLectureCondition(), lecture.getTime(), lecture.getBook(), students);
 
         return response;
     }
@@ -66,7 +63,7 @@ public class LectureService {
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좌입니다."));
 
         lecture.update(request.getName(), request.getProf(), request.getType(),
-                request.getCondition(), request.getTime(), request.getBook());
+                request.getLectureCondition(), request.getTime(), request.getBook());
 
         return lectureRepository.save(lecture);
     }

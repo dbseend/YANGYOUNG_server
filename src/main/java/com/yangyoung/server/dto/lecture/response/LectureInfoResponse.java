@@ -14,7 +14,7 @@ public class LectureInfoResponse {
     private String name;
     private String prof;
     private Integer type;
-    private Integer lecture_condition;
+    private Integer lectureCondition;
     private Integer time;
     private String book;
 
@@ -23,7 +23,7 @@ public class LectureInfoResponse {
         this.name = lecture.getName();
         this.prof = lecture.getProf();
         this.type = lecture.getType();
-        this.lecture_condition = lecture.getLecture_condition();
+        this.lectureCondition = lecture.getLectureCondition();
         this.time = lecture.getTime();
         this.book = lecture.getBook();
     }

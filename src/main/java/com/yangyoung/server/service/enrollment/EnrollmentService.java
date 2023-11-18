@@ -25,9 +25,9 @@ public class EnrollmentService {
 
     @Transactional
     public Enrollment createEnrollment(EnrollmentCreateRequest request) {
-        Student student = studentRepository.findById(request.getStudent_id())
+        Student student = studentRepository.findById(request.getStudentId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 학생입니다."));
-        Lecture lecture = lectureRepository.findById(request.getLecture_id())
+        Lecture lecture = lectureRepository.findById(request.getLectureId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좡비니다."));
 
         Enrollment enrollment = new Enrollment();

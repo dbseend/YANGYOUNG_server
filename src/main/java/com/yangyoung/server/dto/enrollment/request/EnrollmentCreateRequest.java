@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class EnrollmentCreateRequest {
-    private Long student_id;
-    private Long lecture_id;
+    private Long studentId;
+    private Long lectureId;
 }

@@ -8,7 +8,7 @@ public class LectureInfoCreateRequest {
     private String name;
     private String prof;
     private Integer type;
-    private Integer lecture_condition;
+    private Integer lectureCondition;
     private Integer time;
     private String book;
 
@@ -17,7 +17,7 @@ public class LectureInfoCreateRequest {
                 .name(name)
                 .prof(prof)
                 .type(type)
-                .lecture_condition(lecture_condition)
+                .lecture_condition(lectureCondition)
                 .time(time)
                 .book(book)
                 .build();

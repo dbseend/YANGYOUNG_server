@@ -31,7 +31,7 @@ public class StudentService {
         for (int i = 0; i < enrollments.size(); i++) {
             Lecture tempN = enrollments.get(i).getLecture();
             LectureInfoResponse tempL = new LectureInfoResponse(tempN.getId(), tempN.getName(), tempN.getProf(),
-                    tempN.getType(), tempN.getLecture_condition(), tempN.getTime(), tempN.getBook());
+                    tempN.getType(), tempN.getLectureCondition(), tempN.getTime(), tempN.getBook());
             lectures.add(tempL);
         }
 

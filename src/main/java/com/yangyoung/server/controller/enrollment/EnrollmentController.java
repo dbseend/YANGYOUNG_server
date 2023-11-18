@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/enrollment")
+@RequestMapping("/api/v1/enrollments")
 @CrossOrigin(origins = "http://localhost:3000")
 public class EnrollmentController {
     private final EnrollmentService enrollmentService;
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<Enrollment> createEnrollment(@RequestBody EnrollmentCreateRequest request) {
         Enrollment enrollment = enrollmentService.createEnrollment(request);
 
@@ -24,7 +24,7 @@ public class EnrollmentController {
                 .body(enrollment);
     }
 
-    @GetMapping("/findStudent/{student_id}")
+    @GetMapping("/{student_id}")
     public ResponseEntity<EnrollmentForStudentResponse> findLecturesForStudent(@PathVariable Long student_id) {
         EnrollmentForStudentResponse response = enrollmentService.findLecturesForStudent(student_id);
 
@@ -32,7 +32,7 @@ public class EnrollmentController {
                 .body(response);
     }
 
-    @GetMapping("/findLecture/{lecture_id}")
+    @GetMapping("/{lecture_id}")
     public ResponseEntity<EnrollmentForLectureResponse> findStudentsForLecture(@PathVariable Long lecture_id) {
         EnrollmentForLectureResponse response = enrollmentService.findStudentsForLecture(lecture_id);
 

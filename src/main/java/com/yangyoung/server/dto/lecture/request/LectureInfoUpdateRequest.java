@@ -7,7 +7,7 @@ public class LectureInfoUpdateRequest {
     private String name;
     private String prof;
     private Integer type;
-    private Integer condition;
+    private Integer lectureCondition;
     private Integer time;
     private String book;
 }

@@ -14,12 +14,12 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/lecture")
+@RequestMapping("/api/v1/lectures")
 @CrossOrigin(origins = "http://localhost:3000")
 public class LectureController {
     private final LectureService lectureService;
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<Lecture> createLecture(@RequestBody LectureInfoCreateRequest request) {
         Lecture lecture = lectureService.createLecture(request);
 
@@ -27,7 +27,7 @@ public class LectureController {
                 .body(lecture);
     }
 
-    @GetMapping("/findAll")
+    @GetMapping("")
     public ResponseEntity<List<LectureInfoResponse>> findAllLecture() {
         List<LectureInfoResponse> lectures = lectureService.findAllLectures()
                 .stream()
@@ -38,7 +38,7 @@ public class LectureController {
                 .body(lectures);
     }
 
-    @GetMapping("/find/{lectureId}")
+    @GetMapping("/{lectureId}")
     public ResponseEntity<LectureResponse> findLecture(@PathVariable Long lectureId) {
         LectureResponse response = lectureService.findLecturesForStudent(lectureId);
 
@@ -46,16 +46,7 @@ public class LectureController {
                 .body(response);
     }
 
-
-//    @GetMapping("/find/{lectureId}")
-//    public ResponseEntity<LectureInfoResponse> findLecture(@PathVariable Long lectureId) {
-//        Lecture lecture = lectureService.findLecture(lectureId);
-//
-//        return ResponseEntity.ok()
-//                .body(new LectureInfoResponse(lecture));
-//    }
-
-    @PatchMapping("/update/{lectureId}")
+    @PatchMapping("/{lectureId}")
     public ResponseEntity<Lecture> updateLecture(@PathVariable Long lectureId, @RequestBody LectureInfoUpdateRequest request) {
         Lecture lecture = lectureService.updateLecture(lectureId, request);
 
@@ -63,7 +54,7 @@ public class LectureController {
                 .body(lecture);
     }
 
-    @DeleteMapping("/delete/{lectureId}")
+    @DeleteMapping("/{lectureId}")
     public ResponseEntity<Void> deleteLecture(@PathVariable Long lectureId) {
         lectureService.deleteLecture(lectureId);
 

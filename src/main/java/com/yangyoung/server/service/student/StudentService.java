@@ -52,12 +52,6 @@ public class StudentService {
     }
 
     @Transactional
-    public Student findStudent(Long studentId) {
-        return studentRepository.findById(studentId)
-                .orElseThrow(() -> new IllegalArgumentException("학생이 존재하지 않습니다."));
-    }
-
-    @Transactional
     public Student updateStudent(Long studentId, StudentInfoUpdateRequest request) {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalArgumentException("학생이 존재하지 않습니다."));

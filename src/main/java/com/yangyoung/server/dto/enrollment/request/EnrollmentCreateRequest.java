@@ -1,6 +1,5 @@
 package com.yangyoung.server.dto.enrollment.request;
 
-import com.yangyoung.server.entity.enrollment.Enrollment;
 import lombok.Data;
 
 @Data

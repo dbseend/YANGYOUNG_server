@@ -23,13 +23,27 @@ public class StudentService {
     private final EnrollmentRepository enrollmentRepository;
 
     @Transactional
+    //학생 정보 입력
+    public Student createStudent(StudentInfoCreateRequest request) {
+        return studentRepository.save(request.toEntity());
+    }
+
+    @Transactional
+    //학생 전체 정보 조회
+    public List<Student> findAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    @Transactional
+    //학생 한명 정보 조회
     public StudentResponse findLecturesForStudent(Long student_id) {
         Student student = studentRepository.findById(student_id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 학생입니다."));
+
         List<LectureInfoResponse> lectures = new ArrayList<>();
         List<Enrollment> enrollments = enrollmentRepository.findByStudentId(student_id);
-        for (int i = 0; i < enrollments.size(); i++) {
-            Lecture tempN = enrollments.get(i).getLecture();
+        for (Enrollment enrollment : enrollments) {
+            Lecture tempN = enrollment.getLecture();
             LectureInfoResponse tempL = new LectureInfoResponse(tempN.getId(), tempN.getName(), tempN.getProf(),
                     tempN.getType(), tempN.getLectureCondition(), tempN.getTime(), tempN.getBook());
             lectures.add(tempL);
@@ -39,30 +53,5 @@ public class StudentService {
                 , student.getGrade(), student.getBirth(), student.getPhoneNumber(), lectures);
 
         return response;
-    }
-
-    @Transactional
-    public Student createStudent(StudentInfoCreateRequest request) {
-        return studentRepository.save(request.toEntity());
-    }
-
-    @Transactional
-    public List<Student> findAllStudents() {
-        return studentRepository.findAll();
-    }
-
-    @Transactional
-    public Student updateStudent(Long studentId, StudentInfoUpdateRequest request) {
-        Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new IllegalArgumentException("학생이 존재하지 않습니다."));
-
-        student.update(request.getGrade(), request.getPhoneNumber());
-
-        return studentRepository.save(student);
-    }
-
-    @Transactional
-    public void deleteStudent(Long studentId) {
-        studentRepository.deleteById(studentId);
     }
 }

@@ -19,7 +19,7 @@ public class Assignment {
     private Integer progress; // 과제 진행률 - (시작 전, 진행 중, 완료)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "assignment_id")
-    private Lecture lecture;
+    private Lecture lecture; // 과제 해당 과목
 
     @Builder
     public Assignment(String name, Integer progress) {

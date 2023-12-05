@@ -1,9 +1,13 @@
 package com.yangyoung.server.entity.enrollment;
 
+import com.yangyoung.server.entity.enrollmentAssignment.EnrollmentAssignment;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.entity.student.Student;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,5 +21,6 @@ public class Enrollment {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lecture_id") //lecture_id 라는 foreign key 로 lecture 과 연결
     private Lecture lecture;
-
+    @OneToMany(mappedBy = "enrollment", cascade = CascadeType.ALL)
+    private List<EnrollmentAssignment> enrollmentAssignmentList = new ArrayList<>();
 }

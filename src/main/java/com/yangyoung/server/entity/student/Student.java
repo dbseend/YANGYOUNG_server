@@ -36,13 +36,4 @@ public class Student {
         this.birth = birth;
         this.phoneNumber = phoneNumber;
     }
-
-    public void update(Integer grade, String phoneNumber) {
-        if (grade != -1) {
-            this.grade = grade;
-        }
-        if (phoneNumber != null) {
-            this.phoneNumber = phoneNumber;
-        }
-    }
 }

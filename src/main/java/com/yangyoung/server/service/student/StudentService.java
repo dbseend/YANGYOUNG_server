@@ -2,12 +2,11 @@ package com.yangyoung.server.service.student;
 
 import com.yangyoung.server.dto.lecture.response.LectureInfoResponse;
 import com.yangyoung.server.dto.student.request.StudentInfoCreateRequest;
-import com.yangyoung.server.dto.student.request.StudentInfoUpdateRequest;
 import com.yangyoung.server.dto.student.response.StudentResponse;
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.entity.student.Student;
-import com.yangyoung.server.repository.Enrollment.EnrollmentRepository;
+import com.yangyoung.server.repository.enrollment.EnrollmentRepository;
 import com.yangyoung.server.repository.student.StudentRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

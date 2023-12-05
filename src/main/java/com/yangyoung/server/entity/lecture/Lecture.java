@@ -41,15 +41,5 @@ public class Lecture {
         this.time = time;
         this.book = book;
     }
-
-    public void update(String name, String prof, Integer type, Integer condition, Integer time, String book) {
-        this.name = name;
-        this.prof = prof;
-        this.type = type;
-        this.lectureCondition = condition;
-        this.time = time;
-        this.book = book;
-    }
-
 }
 

@@ -7,7 +7,7 @@ import com.yangyoung.server.dto.student.response.StudentInfoResponse;
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.entity.student.Student;
-import com.yangyoung.server.repository.Enrollment.EnrollmentRepository;
+import com.yangyoung.server.repository.enrollment.EnrollmentRepository;
 import com.yangyoung.server.repository.lecture.LectureRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

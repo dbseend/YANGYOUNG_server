@@ -6,7 +6,7 @@ import com.yangyoung.server.dto.enrollment.response.EnrollmentForStudentResponse
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.entity.student.Student;
-import com.yangyoung.server.repository.Enrollment.EnrollmentRepository;
+import com.yangyoung.server.repository.enrollment.EnrollmentRepository;
 import com.yangyoung.server.repository.lecture.LectureRepository;
 import com.yangyoung.server.repository.student.StudentRepository;
 import jakarta.transaction.Transactional;

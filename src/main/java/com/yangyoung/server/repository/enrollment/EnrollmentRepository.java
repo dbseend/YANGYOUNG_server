@@ -1,4 +1,4 @@
-package com.yangyoung.server.repository.Enrollment;
+package com.yangyoung.server.repository.enrollment;
 
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import org.springframework.data.jpa.repository.JpaRepository;

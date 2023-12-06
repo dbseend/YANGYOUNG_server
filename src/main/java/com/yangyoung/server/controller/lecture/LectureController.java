@@ -45,13 +45,13 @@ public class LectureController {
                 .body(response);
     }
 
-    @PatchMapping("/{lectureId}")
-    public ResponseEntity<Lecture> updateLecture(@PathVariable Long lectureId, @RequestBody LectureInfoUpdateRequest request) {
-        Lecture lecture = lectureService.updateLecture(lectureId, request);
-
-        return ResponseEntity.ok()
-                .body(lecture);
-    }
+//    @PatchMapping("/{lectureId}")
+//    public ResponseEntity<Lecture> updateLecture(@PathVariable Long lectureId, @RequestBody LectureInfoUpdateRequest request) {
+//        Lecture lecture = lectureService.updateLecture(lectureId, request);
+//
+//        return ResponseEntity.ok()
+//                .body(lecture);
+//    }
 
     @DeleteMapping("/{lectureId}")
     public ResponseEntity<Void> deleteLecture(@PathVariable Long lectureId) {

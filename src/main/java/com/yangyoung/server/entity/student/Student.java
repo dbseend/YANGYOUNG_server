@@ -1,11 +1,9 @@
 package com.yangyoung.server.entity.student;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yangyoung.server.entity.enrollment.Enrollment;
+import com.yangyoung.server.entity.taskProgress.TaskProgress;
 import jakarta.persistence.*;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +24,8 @@ public class Student {
     private String phoneNumber; // 전화번호
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Enrollment> enrollments = new ArrayList<>(); // 수강 과목
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<TaskProgress> taskProgresses = new ArrayList<>();
 
 
     @Builder

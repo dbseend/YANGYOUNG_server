@@ -57,16 +57,16 @@ public class LectureService {
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좌입니다."));
     }
 
-    @Transactional
-    public Lecture updateLecture(Long lectureId, LectureInfoUpdateRequest request) {
-        Lecture lecture = lectureRepository.findById(lectureId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좌입니다."));
-
-        lecture.update(request.getName(), request.getProf(), request.getType(),
-                request.getLectureCondition(), request.getTime(), request.getBook());
-
-        return lectureRepository.save(lecture);
-    }
+//    @Transactional
+//    public Lecture updateLecture(Long lectureId, LectureInfoUpdateRequest request) {
+//        Lecture lecture = lectureRepository.findById(lectureId)
+//                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좌입니다."));
+//
+//        lecture.update(request.getName(), request.getProf(), request.getType(),
+//                request.getLectureCondition(), request.getTime(), request.getBook());
+//
+//        return lectureRepository.save(lecture);
+//    }
 
     @Transactional
     public void deleteLecture(Long lectureId) {

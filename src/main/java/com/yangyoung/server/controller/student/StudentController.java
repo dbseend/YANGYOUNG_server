@@ -45,19 +45,19 @@ public class StudentController {
                 .body(response);
     }
 
-    @PatchMapping("/{studentId}")
-    public ResponseEntity<Student> updateStudent(@PathVariable Long studentId, @RequestBody StudentInfoUpdateRequest request) {
-        Student student = studentService.updateStudent(studentId, request);
-
-        return ResponseEntity.ok()
-                .body(student);
-    }
-
-    @DeleteMapping("/{studentId}")
-    public ResponseEntity<Void> deleteStudent(@PathVariable Long studentId) {
-        studentService.deleteStudent(studentId);
-
-        return ResponseEntity.noContent()
-                .build();
-    }
+//    @PatchMapping("/{studentId}")
+//    public ResponseEntity<Student> updateStudent(@PathVariable Long studentId, @RequestBody StudentInfoUpdateRequest request) {
+//        Student student = studentService.updateStudent(studentId, request);
+//
+//        return ResponseEntity.ok()
+//                .body(student);
+//    }
+//
+//    @DeleteMapping("/{studentId}")
+//    public ResponseEntity<Void> deleteStudent(@PathVariable Long studentId) {
+//        studentService.deleteStudent(studentId);
+//
+//        return ResponseEntity.noContent()
+//                .build();
+//    }
 }

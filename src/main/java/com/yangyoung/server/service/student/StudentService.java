@@ -3,6 +3,7 @@ package com.yangyoung.server.service.student;
 import com.yangyoung.server.dto.lecture.response.LectureInfoResponse;
 import com.yangyoung.server.dto.student.request.StudentInfoCreateRequest;
 import com.yangyoung.server.dto.student.response.StudentResponse;
+import com.yangyoung.server.dto.student.response.StudentTodayScheduleResponse;
 import com.yangyoung.server.entity.enrollment.Enrollment;
 import com.yangyoung.server.entity.lecture.Lecture;
 import com.yangyoung.server.entity.student.Student;
@@ -12,8 +13,12 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.Calendar.MONDAY;
 
 @Service
 @RequiredArgsConstructor
@@ -53,4 +58,35 @@ public class StudentService {
 
         return response;
     }
+
+    // 학생 오늘의 스케줄 조회
+    @Transactional
+    public List<StudentTodayScheduleResponse> todaySchedule(Long studentId) {
+        List<StudentTodayScheduleResponse> responses = new ArrayList<>();
+        LocalDate date = LocalDate.now();
+        DayOfWeek today = date.getDayOfWeek();
+        int dayIdx; //1: 월수금, 2: 화목
+
+        switch (today) {
+            case MONDAY, WEDNESDAY, FRIDAY -> dayIdx = 1;
+            case TUESDAY, THURSDAY -> dayIdx = 2;
+            default -> throw new IllegalStateException("Unexpected value: " + today);
+        }
+
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 학생입니다."));
+        List<Enrollment> enrollments = student.getEnrollments();
+
+        for (Enrollment enrollment : enrollments) {
+            Lecture lecture = enrollment.getLecture();
+            int day = lecture.getTime();
+            if (day == dayIdx) {
+                StudentTodayScheduleResponse temp = new StudentTodayScheduleResponse(lecture.getName(), lecture.getTime(), lecture.getRoom());
+                responses.add(temp);
+            }
+        }
+
+        return responses;
+    }
+
 }

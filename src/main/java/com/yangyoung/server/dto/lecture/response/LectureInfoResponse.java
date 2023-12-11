@@ -15,6 +15,7 @@ public class LectureInfoResponse {
     private String prof;
     private Integer type;
     private Integer lectureCondition;
+    private Integer day;
     private Integer time;
     private String book;
 
@@ -24,6 +25,7 @@ public class LectureInfoResponse {
         this.prof = lecture.getProf();
         this.type = lecture.getType();
         this.lectureCondition = lecture.getLectureCondition();
+        this.day = lecture.getDay();
         this.time = lecture.getTime();
         this.book = lecture.getBook();
     }

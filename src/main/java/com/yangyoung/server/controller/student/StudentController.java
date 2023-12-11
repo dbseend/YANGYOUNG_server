@@ -4,6 +4,7 @@ import com.yangyoung.server.dto.student.request.StudentInfoCreateRequest;
 import com.yangyoung.server.dto.student.request.StudentInfoUpdateRequest;
 import com.yangyoung.server.dto.student.response.StudentInfoResponse;
 import com.yangyoung.server.dto.student.response.StudentResponse;
+import com.yangyoung.server.dto.student.response.StudentTodayScheduleResponse;
 import com.yangyoung.server.entity.student.Student;
 import com.yangyoung.server.service.student.StudentService;
 import lombok.RequiredArgsConstructor;
@@ -45,19 +46,11 @@ public class StudentController {
                 .body(response);
     }
 
-//    @PatchMapping("/{studentId}")
-//    public ResponseEntity<Student> updateStudent(@PathVariable Long studentId, @RequestBody StudentInfoUpdateRequest request) {
-//        Student student = studentService.updateStudent(studentId, request);
-//
-//        return ResponseEntity.ok()
-//                .body(student);
-//    }
-//
-//    @DeleteMapping("/{studentId}")
-//    public ResponseEntity<Void> deleteStudent(@PathVariable Long studentId) {
-//        studentService.deleteStudent(studentId);
-//
-//        return ResponseEntity.noContent()
-//                .build();
-//    }
+    @GetMapping("/today/{studentId}")
+    private ResponseEntity<List<StudentTodayScheduleResponse>> todaySchedule(@PathVariable Long studentId) {
+        List<StudentTodayScheduleResponse> responses = studentService.todaySchedule(studentId);
+
+        return ResponseEntity.ok()
+                .body(responses);
+    }
 }

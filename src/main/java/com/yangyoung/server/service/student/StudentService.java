@@ -33,13 +33,13 @@ public class StudentService {
     }
 
     @Transactional
-    //학생 전체 정보 조회
+    //학생 전체 정보 조회 - 학생 정보
     public List<Student> findAllStudents() {
         return studentRepository.findAll();
     }
 
     @Transactional
-    //학생 한명 정보 조회
+    //학생 한명 정보 조회 - 학생 정보, 학생 수강 정보
     public StudentResponse findLecturesForStudent(Long student_id) {
         Student student = studentRepository.findById(student_id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 학생입니다."));
@@ -69,7 +69,7 @@ public class StudentService {
 
 
         switch (today) {
-            case MONDAY, WEDNESDAY, FRIDAY -> dayIdx = 1;
+            case MONDAY, WEDNESDAY, FRIDAY, SUNDAY -> dayIdx = 1;
             case TUESDAY, THURSDAY -> dayIdx = 2;
             default -> throw new IllegalStateException("Unexpected value: " + today);
         }

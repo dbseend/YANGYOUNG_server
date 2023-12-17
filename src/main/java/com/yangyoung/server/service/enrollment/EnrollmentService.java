@@ -25,11 +25,10 @@ public class EnrollmentService {
 
     @Transactional
     public Enrollment createEnrollment(EnrollmentCreateRequest request) {
-        System.out.println(request.getLectureId() + " " + request.getStudentId());
         Student student = studentRepository.findById(request.getStudentId())
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 학생입니다."));
         Lecture lecture = lectureRepository.findById(request.getLectureId())
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좡비니다."));
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 강좌입니다."));
 
         Enrollment enrollment = new Enrollment();
         enrollment.setStudent(student);

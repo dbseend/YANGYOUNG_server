@@ -15,7 +15,7 @@ import java.util.List;
 @Getter
 public class Student {
     @Id
-    private Long id;
+    private Long id; //학생 일련번호
     private String name; // 학생 이름
     private Integer gender; // 성별
     private Integer grade; // 학년
@@ -28,7 +28,8 @@ public class Student {
 
 
     @Builder
-    public Student(String name, Integer gender, Integer grade, String birth, String phoneNumber) {
+    public Student(Long id, String name, Integer gender, Integer grade, String birth, String phoneNumber) {
+        this.id = id;
         this.name = name;
         this.gender = gender;
         this.grade = grade;

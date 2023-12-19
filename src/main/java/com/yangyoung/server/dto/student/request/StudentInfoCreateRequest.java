@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 @Data
 public class StudentInfoCreateRequest {
+    private Long id;
     private String name;
     private Integer gender;
     private Integer grade;
@@ -15,6 +16,7 @@ public class StudentInfoCreateRequest {
 
     public Student toEntity() {
         return Student.builder()
+                .id(id)
                 .name(name)
                 .gender(gender)
                 .grade(grade)

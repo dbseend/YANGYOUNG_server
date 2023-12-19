@@ -15,7 +15,6 @@ import java.util.List;
 @Getter
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name; // 학생 이름
     private Integer gender; // 성별

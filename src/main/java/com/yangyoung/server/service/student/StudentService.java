@@ -69,7 +69,7 @@ public class StudentService {
 
 
         switch (today) {
-            case MONDAY, WEDNESDAY, FRIDAY, SUNDAY -> dayIdx = 1;
+            case MONDAY, WEDNESDAY, FRIDAY -> dayIdx = 1;
             case TUESDAY, THURSDAY -> dayIdx = 2;
             default -> throw new IllegalStateException("Unexpected value: " + today);
         }

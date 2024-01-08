@@ -1,39 +1,48 @@
 package com.yangyoung.server.student.domain;
 
+import com.yangyoung.server.assignment.domain.Assignment;
+import com.yangyoung.server.attendance.domain.Attendance;
 import com.yangyoung.server.enrollment.domain.Enrollment;
-import com.yangyoung.server.entity.taskProgress.TaskProgress;
+import com.yangyoung.server.group.domain.Group;
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @Getter
 public class Student {
+    /*
+    - 학생ID (Primary Key)
+    - 이름
+    - 학교
+    - 학년
+    - 연락처
+    - 반ID (Foreign Key, 반 테이블 참조, Unique Constraint)
+    - 출석ID (Foreign Key, 출석 테이블 참조)
+    */
+
     @Id
-    private Long id; //학생 일련번호
-    private String name; // 학생 이름
-    private Integer gender; // 성별
-    private Integer grade; // 학년
-    private String birth; // 생일
-    private String phoneNumber; // 전화번호
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<Enrollment> enrollments = new ArrayList<>(); // 수강 과목
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<TaskProgress> taskProgresses = new ArrayList<>();
+    private Long id;
 
+    private String name;
 
-    @Builder
-    public Student(Long id, String name, Integer gender, Integer grade, String birth, String phoneNumber) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.grade = grade;
-        this.birth = birth;
-        this.phoneNumber = phoneNumber;
-    }
+    private String school;
+
+    private String grade;
+
+    private String phoneNumber;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "student_id")
+    private Group group;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Attendance> attendanceList;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Assignment> assignmentList;
+
 }
